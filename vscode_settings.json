@@ -1,0 +1,9 @@
+{
+    "vim.disableAnnoyingNeovimMessage": true,
+    "vim.useSystemClipboard": true,
+    "git.enableSmartCommit": true,
+    "gitlens.gitExplorer.files.layout": "tree",
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "gitlens.advanced.telemetry.enabled": false
+}
