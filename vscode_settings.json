@@ -5,5 +5,6 @@
     "gitlens.gitExplorer.files.layout": "tree",
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "gitlens.advanced.telemetry.enabled": false
+    "gitlens.advanced.telemetry.enabled": false,
+    "editor.rulers": [80]
 }
