@@ -10,6 +10,7 @@
   let g:vim_markdown_folding_disabled=1
 
   set number " show line numbers
+  set relativenumber " show relative line numbers
   set clipboard=unnamed " let Cmd+c and Cmd+v work
   set backspace=indent,eol,start " make backspace work
   set incsearch           " search as characters are entered
