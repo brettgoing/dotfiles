@@ -42,5 +42,6 @@
                 }
             ]
         }
-    ]
+    ],
+    "editor.lineNumbers": "relative"
 }
