@@ -8,6 +8,16 @@
   filetype plugin indent on
   syntax on
   let g:vim_markdown_folding_disabled=1
-  set number
-  set clipboard=unnamed
-  set backspace=indent,eol,start
+
+  set number " show line numbers
+  set clipboard=unnamed " let Cmd+c and Cmd+v work
+  set backspace=indent,eol,start " make backspace work
+  set incsearch           " search as characters are entered
+  set hlsearch            " highlight matches
+  let mapleader=","       " , is leader
+
+  " turn off search highlight
+  nnoremap <leader><space> :nohlsearch<CR>
+
+  " jj is escape
+  inoremap jj <esc>
