@@ -43,5 +43,6 @@
             ]
         }
     ],
-    "editor.lineNumbers": "relative"
+    "editor.lineNumbers": "relative",
+    "vim.iskeyword": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-_"
 }
