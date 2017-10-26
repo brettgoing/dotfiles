@@ -17,6 +17,9 @@
   set hlsearch            " highlight matches
   let mapleader=","       " , is leader
 
+  " make underscore a word boundary
+  set iskeyword-=_
+
   " turn off search highlight
   nnoremap <leader><space> :nohlsearch<CR>
 
