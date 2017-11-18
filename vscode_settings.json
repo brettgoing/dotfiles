@@ -44,5 +44,7 @@
         }
     ],
     "editor.lineNumbers": "relative",
-    "vim.iskeyword": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-_"
+    "vim.iskeyword": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-_",
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/local/bin/nvim"
 }
