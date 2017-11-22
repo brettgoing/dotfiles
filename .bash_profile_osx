@@ -1,0 +1,2 @@
+alias cddev="cd $HOME/dev/src"
+export GOPATH="$HOME/dev"
