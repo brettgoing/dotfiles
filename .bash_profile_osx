@@ -1,4 +1,5 @@
-alias cddev="cd $HOME/dev/src"
+alias cddev="cd $HOME/dev"
+alias cdgo="cd $HOME/dev/go/src/github.com/brettgoing"
 
 # golang
 export GOPATH="$HOME/dev/go"
