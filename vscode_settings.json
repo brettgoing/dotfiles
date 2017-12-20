@@ -46,5 +46,15 @@
     "editor.lineNumbers": "relative",
     "vim.iskeyword": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-_",
     "vim.enableNeovim": true,
-    "vim.neovimPath": "/usr/local/bin/nvim"
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": true,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    }
 }
