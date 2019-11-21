@@ -1,5 +1,7 @@
+alias vi=vim
 alias cddev="cd $HOME/dev"
 alias cdgo="cd $HOME/dev/go/src/github.com/brettgoing"
+alias tailf='tail -F'
 
 # golang
 export GOPATH="$HOME/dev/go"
@@ -11,3 +13,17 @@ pwd='\[\033[0;36m\]\w\[\033[0m\]'
 export PS1="$username$host $pwd\$ "
 export GREP_OPTIONS='--color=auto'
 alias ls="ls -G"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+# openjdk@11
+export JAVA_HOME=$(find "/usr/local/Cellar/openjdk@11" -type d -depth 1|sort|tail -n 1)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bgoing/google-cloud-sdk/path.bash.inc' ]; then source '/Users/bgoing/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bgoing/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/bgoing/google-cloud-sdk/completion.bash.inc'; fi

@@ -11,7 +11,7 @@
 
   set number " show line numbers
   set relativenumber " show relative line numbers
-  set clipboard=unnamed " let Cmd+c and Cmd+v work
+  set clipboard=unnamed " copy to the system clipboard
   set backspace=indent,eol,start " make backspace work
   set incsearch           " search as characters are entered
   set hlsearch            " highlight matches
