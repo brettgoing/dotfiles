@@ -1,5 +1,7 @@
 export PATH=$HOME/bin:/usr/local/redis/bin:$PATH
-alias cddev="cd $HOME/go/src/github.com/VerveWireless/otas"
+alias vi=vim
+alias cddev="cd $HOME/dev"
+alias tailf='tail -F'
 
 # colorize all the things
 username='\[\033[0;33m\]\u\[\033[0m\]'
