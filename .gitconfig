@@ -1,6 +1,7 @@
 [user]
 	name = brett
 	email = bgoing@gmail.com
+	signingkey = 612E1B5A6ADF8372
 [push]
 	default = simple
 [core]
