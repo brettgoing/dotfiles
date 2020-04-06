@@ -3,9 +3,12 @@ alias cddev="cd $HOME/dev"
 alias cdgo="cd $HOME/dev/go/src/github.com/brettgoing"
 alias tailf='tail -F'
 
+# silence mac zsh warning
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # golang
 export GOPATH="$HOME/dev/go"
-export PATH=$PATH:$HOME/projects/evernote/hw2019/fabric-samples/bin
+export GO111MODULE=on
 
 # colorize all the things
 username='\[\033[0;33m\]\u\[\033[0m\]'
@@ -15,42 +18,15 @@ export PS1="$username$host $pwd\$ "
 export GREP_OPTIONS='--color=auto'
 alias ls="ls -G"
 
+# bash vi mode
+set -o vi
+bind '"jj": "\e"'
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
-# openjdk@11
-export JAVA_HOME=$(find "/usr/local/Cellar/openjdk@11" -type d -depth 1|sort|tail -n 1)
+# docker
+alias dc="docker-compose"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/bgoing/google-cloud-sdk/path.bash.inc' ]; then source '/Users/bgoing/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/bgoing/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/bgoing/google-cloud-sdk/completion.bash.inc'; fi
-
-# beanshell helpers
-alias run.bsh='curl -i -X POST http://localhost:8080/ops/bsh -H "Authorization: Basic dGVzdDpQcmkvdmV0" -H "Content-Type: text/plain; charset=UTF-8" --data @-'
-function run.bsh.script() {
-  curl -i -X POST http://localhost:8080/ops/bsh -H "Authorization: Basic dGVzdDpQcmkvdmV0" -H "Content-Type: text/plain; charset=UTF-8" --data @$1
-}
-function run.bsh.script.stage() {
-  #curl -i -X POST http://stage-ns-1.c.en-testing.internal:8080/ops/bsh -H "Authorization: Basic dGVzdDpQcmkvdmV0" -H "Content-Type: text/plain; charset=UTF-8" --data @$1
-  curl -i -X POST http://stage-ns-2.c.en-testing.internal:8080/ops/bsh -H "Authorization: Basic dGVzdDpQcmkvdmV0" -H "Content-Type: text/plain; charset=UTF-8" --data @$1
-}
-function run.bsh.script.etn3() {
-  #curl -i -X POST http://etn3-ns-1.c.en-testing.internal:8080/ops/bsh -H "Authorization: Basic dGVzdDpQcmkvdmV0" -H "Content-Type: text/plain; charset=UTF-8" --data @$1
-  curl -i -X POST http://etn3-ns-2.c.en-testing.internal:8080/ops/bsh -H "Authorization: Basic dGVzdDpQcmkvdmV0" -H "Content-Type: text/plain; charset=UTF-8" --data @$1
-}
-
-# gcloud aliases
-alias gauth="gcloud auth application-default login --no-launch-browser; gcloud container clusters get-credentials gke1-services-1"
-alias gauthetn3="gcloud auth application-default login --no-launch-browser; gcloud container clusters get-credentials gke-etn3-services-1"
-alias gdev="gcloud config configurations activate en-development; kubectl config use-context gke_en-development_us-west1-a_gke1-services-1"
-alias gtest="gcloud config configurations activate en-testing; kubectl config use-context gke_en-testing_us-west1-a_gke1-services-1"
-alias getn3="gcloud config configurations activate en-etn3; kubectl config user-context gke_en-testing_us-west1-b_gke-etn3-services-1"
-alias gprod="gcloud config configurations activate en-production; kubectl config use-context gke_en-production_us-west1-a_gke1-services-1"
-alias gdevauth="gdev; gauth"
-alias gtestauth="gtest; gauth"
-alias getn3auth="gauthetn3; getn3"
-alias gprodauth="gprod; gauth"
