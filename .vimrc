@@ -16,6 +16,10 @@
   set incsearch           " search as characters are entered
   set hlsearch            " highlight matches
   let mapleader=","       " , is leader
+  
+  " Disable annoying beeping
+  set noerrorbells
+  set vb t_vb=
 
   " make underscore a word boundary
   set iskeyword-=_
