@@ -1,14 +1,14 @@
 alias vi=vim
-alias cddev="cd $HOME/dev"
-alias cdgo="cd $HOME/dev/go/src/github.com/brettgoing"
+alias cdgo="cd $HOME/go/src/github.com/airspacetechnologies"
 alias tailf='tail -F'
 
 # silence mac zsh warning
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # golang
-export GOPATH="$HOME/dev/go"
+export GOPATH="$HOME/go"
 export GO111MODULE=on
+export GOPRIVATE=github.com/airspacetechnologies/*
 
 # colorize all the things
 username='\[\033[0;33m\]\u\[\033[0m\]'
@@ -44,3 +44,25 @@ function kubectl() { echo "+ kubectl $@">&2; command kubectl $@; }
 # kubectl automcompletion ("brew install bash-completion" first)
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 [ -f ~/.kubectl_autocomplete ] && source ~/.kubectl_autocomplete
+
+# airspace
+export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+alias as_go="cd ~/go/src/github.com/airspacetechnologies"
+alias carmen="as_go && cd carmen"
+alias solicitor="as_go && cd solicitor"
+alias albatross="as_go && cd albatross"
+
+function db_restore {
+        dropdb firstdelivery -h localhost -U firstdelivery
+        createdb firstdelivery -h localhost -U firstdelivery
+#        docker exec -i db pg_restore --no-owner -v -d firstdelivery --role firstdelivery -U firstdelivery -Fc $1 -h localhost < $1
+	pg_restore --no-owner -d firstdelivery -U firstdelivery -h localhost -Fc $1 -j8
+}
+
+function refresh_db {
+        aws s3 cp s3://airspace-backups/nightly/light.dump ~/light.dump
+        db_restore ~/light.dump
+        #rm ~/light.dump
+}
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
