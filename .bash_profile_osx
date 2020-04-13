@@ -29,4 +29,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # docker
 alias dc="docker-compose"
+alias dcclean="docker-compose down -v --rmi all --remove-orphans"
 
