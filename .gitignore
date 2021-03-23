@@ -24,6 +24,10 @@ TAGS
 
 test
 
+# Python
+__pycache__
+*.pyc
+
 # OSX
 .DS_Store
 
