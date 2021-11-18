@@ -31,3 +31,16 @@ export NVM_DIR="$HOME/.nvm"
 alias dc="docker-compose"
 alias dcclean="docker-compose down -v --rmi all --remove-orphans"
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/brett/google-cloud-sdk/path.bash.inc' ]; then . '/Users/brett/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/brett/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/brett/google-cloud-sdk/completion.bash.inc'; fi
+
+# github.com/ahmetb/kubectl-aliases
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+function kubectl() { echo "+ kubectl $@">&2; command kubectl $@; }
+
+# kubectl automcompletion ("brew install bash-completion" first)
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[ -f ~/.kubectl_autocomplete ] && source ~/.kubectl_autocomplete
