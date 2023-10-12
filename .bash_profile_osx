@@ -46,15 +46,19 @@ function kubectl() { echo "+ kubectl $@">&2; command kubectl $@; }
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 [ -f ~/.kubectl_autocomplete ] && source ~/.kubectl_autocomplete
 
+# custom airspace kubectl aliases
+source ~/.as_kubectl_aliases
+
 # airspace
 export RUBYOPT='-W0'
-export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/lib
-export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
+# export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/lib
+export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
 alias as_go="cd ~/go/src/github.com/airspacetechnologies"
 alias carmen="as_go && cd carmen"
 alias solicitor="as_go && cd solicitor"
 alias albatross="as_go && cd albatross"
-alias updoc="pushd ~/src/DockerConfig && docker-compose up -d light-pt-db pt-redis rabbitmq solicitor-db flight-db albatross-db canary-db carmen-redis carmen-db && popd"
+alias updoc="pushd ~/src/DockerConfig && docker-compose up -d light-pt-db pt-redis nsqd solicitor-db albatross-db canary-db carmen-redis carmen-db mallard-db parrot-db nsqd nsqlookupd nsqadmin && popd"
+alias downdoc="pushd ~/src/DockerConfig && docker-compose down --remove-orphans -v && popd"
 
 function db_restore {
         dropdb firstdelivery -h localhost -U firstdelivery
