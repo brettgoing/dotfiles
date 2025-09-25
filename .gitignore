@@ -45,3 +45,6 @@ couchbase_lotsofkeys
 
 #VSCode
 .vscode
+
+#Claude
+**/.claude/settings.local.json
