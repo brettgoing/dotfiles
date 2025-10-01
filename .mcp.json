@@ -31,6 +31,10 @@
     "atlassian": {
       "type": "sse",
       "url": "https://mcp.atlassian.com/v1/sse"
+    },
+    "deepwiki": {
+      "type": "sse",
+      "url": "https://mcp.deepwiki.com/sse"
     }
   }
 }
