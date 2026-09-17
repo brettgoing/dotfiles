@@ -29,12 +29,53 @@
       "env": {}
     },
     "atlassian": {
-      "type": "sse",
-      "url": "https://mcp.atlassian.com/v1/sse"
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.atlassian.com/v1/mcp",
+        "--transport",
+        "http-first"
+      ]
+    },
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--no-usage-statistics"
+      ],
+      "env": {
+        "PATH": "/Users/brett/.nvm/versions/node/v22.23.2/bin:/usr/local/bin:/usr/bin:/bin"
+      }
     },
     "deepwiki": {
       "type": "sse",
       "url": "https://mcp.deepwiki.com/sse"
+    },
+    "mcp-402": {
+      "type": "http",
+      "url": "https://mcp-gateway.airspace.com/mcp/mcp-402"
+    },
+    "mcp-rag": {
+      "type": "http",
+      "url": "https://mcp-gateway.airspace.com/mcp/mcp-rag"
+    },
+    "mcp-data": {
+      "type": "http",
+      "url": "https://mcp-gateway.airspace.com/mcp/mcp-data"
+    },
+    "datadog-mcp": {
+      "type": "http",
+      "url": "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp"
+    },
+    "gateway-tools": {
+      "type": "http",
+      "url": "https://mcp-gateway.airspace.com/mcp/gateway-tools"
+    },
+    "infra": {
+      "type": "http",
+      "url": "https://mcp-gateway.airspace.com/mcp/infra"
     }
   }
 }
